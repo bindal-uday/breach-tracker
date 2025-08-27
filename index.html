@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breach Tracker Pro</title>
+    
+    <!-- Custom Security Favicon -->
+    <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='shield-grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2332D0E5'/%3E%3Cstop offset='100%25' stop-color='%23218294'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 2l12 4v10c0 10-12 14-12 14S4 26 4 16V6l12-4z' fill='url(%23shield-grad)' stroke='%23134152' stroke-width='1'/%3E%3Cpath d='M12 16l3 3 6-6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cdefs%3E%3ClinearGradient id='shield-grad-16' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2332D0E5'/%3E%3Cstop offset='100%25' stop-color='%23218294'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M8 1l6 2v5c0 5-6 7-6 7S2 13 2 8V3l6-2z' fill='url(%23shield-grad-16)' stroke='%23134152' stroke-width='0.5'/%3E%3Cpath d='M6 8l1.5 1.5 3-3' stroke='white' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='shield-grad-32' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2332D0E5'/%3E%3Cstop offset='100%25' stop-color='%23218294'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 2l12 4v10c0 10-12 14-12 14S4 26 4 16V6l12-4z' fill='url(%23shield-grad-32)' stroke='%23134152' stroke-width='1'/%3E%3Cpath d='M12 16l3 3 6-6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3ClinearGradient id='shield-grad-180' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2332D0E5'/%3E%3Cstop offset='100%25' stop-color='%23218294'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='180' rx='40' fill='url(%23shield-grad-180)'/%3E%3Cpath d='M90 20l60 20v50c0 50-60 70-60 70S30 140 30 90V40l60-20z' fill='white' opacity='0.9'/%3E%3Cpath d='M90 30l50 17v42c0 42-50 58-50 58S40 131 40 89V47l50-17z' fill='url(%23shield-grad-180)'/%3E%3Cpath d='M70 90l15 15 30-30' stroke='white' stroke-width='8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header" id="header">
+            <div class="header-main">
+                <div class="header-title-section">
+                    <h1 class="app-title">🛡️ Breach Tracker Pro</h1>
+                    <button class="header-toggle" id="headerToggle" aria-label="Toggle header">
+                        <span class="toggle-arrow">▼</span>
+                    </button>
+                </div>
+                
+                <div class="header-actions">
+                    <button class="btn btn--secondary theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        🌙
+                    </button>
+                    <button class="btn btn--secondary import-btn" id="importBtn">
+                        📥 Import
+                    </button>
+                    <button class="btn btn--secondary export-btn" id="exportBtn">
+                        📤 Export
+                    </button>
+                </div>
+            </div>
+            
+            <div class="header-content" id="headerContent">
+                <!-- Stats Section -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalCount">68</div>
+                        <div class="stat-label">Total Domains</div>
+                    </div>
+                    <div class="stat-card critical">
+                        <div class="stat-number" id="criticalCount">10</div>
+                        <div class="stat-label">Critical</div>
+                    </div>
+                    <div class="stat-card high">
+                        <div class="stat-number" id="highCount">3</div>
+                        <div class="stat-label">High Risk</div>
+                    </div>
+                    <div class="stat-card medium">
+                        <div class="stat-number" id="mediumCount">3</div>
+                        <div class="stat-label">Medium Risk</div>
+                    </div>
+                    <div class="stat-card low">
+                        <div class="stat-number" id="lowCount">52</div>
+                        <div class="stat-label">Low Risk</div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-section">
+                    <div class="progress-header">
+                        <span>Overall Progress</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="controls-section">
+                    <div class="search-container">
+                        <input type="text" class="form-control search-input" id="searchInput" placeholder="Search domains..." aria-label="Search domains">
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn critical" data-filter="critical">Critical</button>
+                        <button class="filter-btn high" data-filter="high">High</button>
+                        <button class="filter-btn medium" data-filter="medium">Medium</button>
+                        <button class="filter-btn low" data-filter="low">Low</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Critical Domains -->
+            <section class="risk-category" data-risk="critical">
+                <div class="category-header" data-category="critical">
+                    <div class="category-info">
+                        <div class="risk-indicator critical"></div>
+                        <h2 class="category-title">Critical Risk</h2>
+                        <div class="category-progress">
+                            <span class="progress-text" id="critical-progress-text">(0/10 - 0%)</span>
+                            <div class="progress-bar mini critical">
+                                <div class="progress-fill" id="critical-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="category-toggle" aria-label="Toggle critical domains">
+                        <span class="toggle-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="domains-container" id="critical-domains">
+                    <!-- Critical domains will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- High Risk Domains -->
+            <section class="risk-category" data-risk="high">
+                <div class="category-header" data-category="high">
+                    <div class="category-info">
+                        <div class="risk-indicator high"></div>
+                        <h2 class="category-title">High Risk</h2>
+                        <div class="category-progress">
+                            <span class="progress-text" id="high-progress-text">(0/3 - 0%)</span>
+                            <div class="progress-bar mini high">
+                                <div class="progress-fill" id="high-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="category-toggle" aria-label="Toggle high risk domains">
+                        <span class="toggle-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="domains-container" id="high-domains">
+                    <!-- High risk domains will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Medium Risk Domains -->
+            <section class="risk-category" data-risk="medium">
+                <div class="category-header" data-category="medium">
+                    <div class="category-info">
+                        <div class="risk-indicator medium"></div>
+                        <h2 class="category-title">Medium Risk</h2>
+                        <div class="category-progress">
+                            <span class="progress-text" id="medium-progress-text">(0/3 - 0%)</span>
+                            <div class="progress-bar mini medium">
+                                <div class="progress-fill" id="medium-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="category-toggle" aria-label="Toggle medium risk domains">
+                        <span class="toggle-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="domains-container" id="medium-domains">
+                    <!-- Medium risk domains will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Low Risk Domains -->
+            <section class="risk-category" data-risk="low">
+                <div class="category-header" data-category="low">
+                    <div class="category-info">
+                        <div class="risk-indicator low"></div>
+                        <h2 class="category-title">Low Risk</h2>
+                        <div class="category-progress">
+                            <span class="progress-text" id="low-progress-text">(0/52 - 0%)</span>
+                            <div class="progress-bar mini low">
+                                <div class="progress-fill" id="low-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="category-toggle" aria-label="Toggle low risk domains">
+                        <span class="toggle-arrow">▼</span>
+                    </button>
+                </div>
+                <div class="domains-container" id="low-domains">
+                    <!-- Low risk domains will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Import Modal -->
+        <div class="modal hidden" id="importModal">
+            <div class="modal-overlay" id="importModalOverlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Import Data</h3>
+                    <button class="modal-close" id="importModalClose" aria-label="Close modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="import-section">
+                        <p>Select a JSON file to import your breach tracker data:</p>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <div class="upload-content">
+                                <div class="upload-icon">📁</div>
+                                <div class="upload-text">
+                                    <strong>Click to select file</strong> or drag and drop
+                                </div>
+                                <div class="upload-subtext">JSON files only</div>
+                            </div>
+                            <input type="file" id="fileInput" accept=".json" class="hidden">
+                        </div>
+                        <div class="import-preview hidden" id="importPreview">
+                            <h4>Preview:</h4>
+                            <div class="preview-content" id="previewContent"></div>
+                            <div class="import-actions">
+                                <button class="btn btn--secondary" id="cancelImport">Cancel</button>
+                                <button class="btn btn--primary" id="confirmImport">Import Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Modal -->
+        <div class="modal hidden" id="exportModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Export Data</h3>
+                    <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>Choose export format:</p>
+                    <div class="export-buttons">
+                        <button class="btn btn--primary" id="exportJSON">📤 Export as JSON</button>
+                        <button class="btn btn--secondary" id="exportCSV">📄 Export as CSV</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Container -->
+        <div class="notification-container" id="notificationContainer"></div>
+
+        <!-- Hidden file input for import -->
+        <input type="file" id="hiddenFileInput" accept=".json" class="hidden">
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
